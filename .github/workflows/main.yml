@@ -2,24 +2,8 @@ name: CI on Self-Hosted Runner
 on: [push]
 jobs:
   build:
-    runs-on: self-hosted  # <---- specify your self-hosted runner
+    runs-on: self-hosted  
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - name: Install uv
-        run: |
-          if ! command -v uv &> /dev/null; then
-            curl -LsSf https://astral.sh/uv/install.sh | sh
-            echo "$HOME/.cargo/bin" >> $GITHUB_PATH
-          fi
-      - name: Create virtual environment and run main.py
-        run: |
-          # Create .venv if it doesn't exist
-          if [ ! -d ".venv" ]; then
-            uv venv
-          fi
-          # Run main.py using uv
-          uv run main.py
+      - name: Run main.py
+        run: uv run main.py
