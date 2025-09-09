@@ -1,0 +1,9 @@
+name: CI on Self-Hosted Runner
+on: [push]
+jobs:
+  build:
+    runs-on: self-hosted  # <---- specify your self-hosted runner
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a script
+        run: echo "Hello from the self-hosted runner!"
