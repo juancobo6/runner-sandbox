@@ -12,4 +12,7 @@ if __name__ == "__main__":
     }
     sample_df = pd.DataFrame(sample_data)
     timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-    sample_df.to_csv(f"sample_data_{timestamp}.csv", index=False)
+    sample_df.to_csv(
+        f"C:/Users/JuanCobo/Documents/runner-sandbox/data/sample_data_{timestamp}.csv",
+        index=False,
+    )
